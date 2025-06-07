@@ -1,0 +1,16 @@
+cards = input().split(" ")
+count_faro_shuffles = int(input())
+
+for _ in range(count_faro_shuffles):
+    middle = len(cards) // 2
+    left_half = cards[:middle]
+    right_half = cards[middle:]
+    shuffled_cards = []
+
+    for i in range(middle):
+        shuffled_cards.append(left_half[i])
+        shuffled_cards.append(right_half[i])
+
+    cards = shuffled_cards
+
+print(cards)
