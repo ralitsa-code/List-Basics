@@ -1,0 +1,42 @@
+events_list = input().split("|")
+total_energy = 100
+total_coins = 100
+if total_energy > 100:
+    total_energy = 100
+you_managed = True
+
+for event in events_list:
+    event_items = event.split("-")
+    type_event = event_items[0]
+    value_event = int(event_items[1])
+
+    if type_event == "rest":
+        initial_energy = total_energy
+        total_energy += value_event
+        if total_energy > 100:
+            total_energy = 100
+        gained_energy = total_energy - initial_energy
+        print(f"You gained {gained_energy} energy.")
+        print(f"Current energy: {total_energy}.")
+
+    elif type_event == "order":
+        if total_energy >= 30:
+            total_energy -= 30
+            total_coins += value_event
+            print(f"You earned {value_event} coins.")
+        else:
+            total_energy += 50
+            print("You had to rest!")
+
+    else:
+        ingredient = type_event
+        if total_coins >= value_event:
+            total_coins -= value_event
+            print(f"You bought {ingredient}.")
+        else:
+            you_managed = False
+            print(f"Closed! Cannot afford {ingredient}.")
+            break
+
+if you_managed:
+    print(f"Day completed!\nCoins: {total_coins}\nEnergy: {total_energy}")
