@@ -1,0 +1,22 @@
+sent_off_string = input()
+sent_off_list = sent_off_string.split(" ")
+unique_sent_off_list = []
+
+for item in sent_off_list:
+    if item not in unique_sent_off_list:
+        unique_sent_off_list.append(item)
+
+Team_A = 11
+Team_B = 11
+
+for element in unique_sent_off_list:
+    if "A" in element:
+        Team_A -= 1
+    else:
+        Team_B -= 1
+    if Team_A < 7 or Team_B < 7:
+        break
+
+print(f"Team A - {Team_A}; Team B - {Team_B}")
+if Team_A < 7 or Team_B < 7:
+    print("Game was terminated")
