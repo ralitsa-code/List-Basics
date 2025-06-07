@@ -1,0 +1,8 @@
+single_string = input()
+converted_list = []
+list_single_string = single_string.split(" ")
+
+for element in list_single_string:
+    element = int(element) * -1
+    converted_list.append(element)
+print(converted_list)
