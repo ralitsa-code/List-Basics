@@ -1,0 +1,21 @@
+list_numbers = input().split(" ")
+numbers_to_remove = int(input())
+integer_list = []
+string_list = []
+
+for index in range(len(list_numbers)):
+    integer_list.append(int(list_numbers[index]))
+
+integer_list.sort(reverse=True)
+
+for integer in range(numbers_to_remove):
+    integer_list.pop()
+
+for i in range(len(integer_list)):
+    string_list.append(str(integer_list[i]))
+
+for item in list_numbers:
+    if item not in string_list:
+        list_numbers.remove(item)
+
+print(", ".join(list_numbers))
