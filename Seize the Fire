@@ -1,0 +1,28 @@
+fires_with_their_cells = input().split("#")
+water = int(input())
+effort = 0
+put_out_cells = []
+total_fire = 0
+
+for items in fires_with_their_cells:
+    item = items.split(" = ")
+    level_fire = item[0]
+    value_cell = int(item[1])
+
+    if level_fire == "High" and 81 <= value_cell <= 125 or \
+        level_fire == "Medium" and 51 <= value_cell <= 80 or \
+        level_fire == "Low" and 1 <= value_cell <= 50:
+        if water >= value_cell:
+            water -= value_cell
+            total_fire += value_cell
+            effort += value_cell * 0.25
+            put_out_cells.append(value_cell)
+
+        else:
+            continue
+
+print(f"Cells:")
+for cells in put_out_cells:
+    print(f"- {cells}")
+print(f"Effort: {effort:.2f}")
+print(f"Total Fire: {total_fire}")
