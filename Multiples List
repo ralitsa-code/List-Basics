@@ -1,0 +1,9 @@
+factor = int(input())
+factor_fixed = factor
+count = int(input())
+list_factor = []
+
+for elements in range(count):
+    list_factor.append(factor)
+    factor += factor_fixed
+print(list_factor)
